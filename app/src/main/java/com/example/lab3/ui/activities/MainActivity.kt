@@ -1,11 +1,16 @@
 package com.example.lab3.ui.activities
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.lab3.R
+import com.example.lab3.util.isPalindrom
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,5 +22,25 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val inputForm: TextInputEditText = findViewById(R.id.main_form)
+        val outputLabel: TextView = findViewById(R.id.main_label)
+
+        inputForm.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s.isNullOrBlank()) {
+                    outputLabel.text = getString(R.string.morda)
+                }
+                else {
+                    outputLabel.text = if (isPalindrom(s.toString())) "Palindrom" else "Not palindrom"
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
     }
 }
