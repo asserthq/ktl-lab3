@@ -9,8 +9,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_form_layout"
-        android:layout_width="304dp"
-        android:layout_height="131dp"
+        android:layout_width="313dp"
+        android:layout_height="118dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
@@ -21,7 +21,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main_form"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="106dp"
             android:maxLength="150"
             android:textAlignment="center"
             android:textSize="20sp" />
