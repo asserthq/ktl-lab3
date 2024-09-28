@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.lab3.R
 import com.example.lab3.util.isPalindrom
+import com.example.lab3.util.preprocessStr
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         inputForm.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (s.isNullOrBlank()) {
-                    outputLabel.text = getString(R.string.morda)
-                }
-                else {
-                    outputLabel.text = if (isPalindrom(s.toString())) "Palindrom" else "Not palindrom"
+                outputLabel.text = getString(R.string.morda)
+                if (s != null) {
+                    val prepStr = preprocessStr(s.toString())
+                    if (prepStr.isNotEmpty()) {
+                        outputLabel.text = if (isPalindrom(prepStr)) "Palindrom" else "Not palindrom"
+                    }
                 }
             }
 
