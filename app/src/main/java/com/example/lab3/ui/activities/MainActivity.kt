@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.lab3.R
-import com.example.lab3.util.isPalindrom
+import com.example.lab3.util.isPalindrome
 import com.example.lab3.util.preprocessStr
 import com.google.android.material.textfield.TextInputEditText
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 if (s != null) {
                     val prepStr = preprocessStr(s.toString())
                     if (prepStr.isNotEmpty()) {
-                        outputLabel.text = if (isPalindrom(prepStr)) "Palindrom" else "Not palindrom"
+                        outputLabel.text = if (isPalindrome(prepStr)) "Palindrom" else "Not palindrom"
                     }
                 }
             }
